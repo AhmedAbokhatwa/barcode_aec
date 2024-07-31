@@ -1,0 +1,98 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-03-26 22:33:25.234246",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "member_info_section",
+  "date",
+  "customer",
+  "customer_address",
+  "column_break_b6hb0",
+  "customer_name",
+  "commercial_register",
+  "exporter_register_number",
+  "company_type"
+ ],
+ "fields": [
+  {
+   "fieldname": "member_info_section",
+   "fieldtype": "Section Break",
+   "label": "Member Information"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "customer_address",
+   "fieldtype": "Link",
+   "label": "Member Address",
+   "options": "Address"
+  },
+  {
+   "fieldname": "column_break_b6hb0",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "customer.custom_registration_number_in_commercial_register",
+   "fieldname": "commercial_register",
+   "fieldtype": "Data",
+   "label": "Commercial register number"
+  },
+  {
+   "description": "Please , Select the member by code or name",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Member",
+   "options": "Customer"
+  },
+  {
+   "fetch_from": "customer.custom_name_of_the_cioowner_of_the_company",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Member Name"
+  },
+  {
+   "fetch_from": "customer.custom_registration_number_in_exporter_register",
+   "fieldname": "exporter_register_number",
+   "fieldtype": "Data",
+   "label": "Exporter Register Number"
+  },
+  {
+   "fetch_from": "customer.custom_company_type_",
+   "fieldname": "company_type",
+   "fieldtype": "Data",
+   "label": "Company Type"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-05-11 15:27:10.594232",
+ "modified_by": "Administrator",
+ "module": "Barcode Aec",
+ "name": "To whom it may concern",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,190 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-03-13 11:39:50.945658",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "custom_customer_group",
+  "custom_membership_status",
+  "column_break_auig1",
+  "customer_name",
+  "posting_date",
+  "custom_volume_of_exports",
+  "section_break_vap5v",
+  "custom_registration_number_in_commercial_register_attachment",
+  "custom_start_date",
+  "custom_end_date",
+  "column_break_cuxfj",
+  "custom_tax_id",
+  "custom_start_date_of_tax",
+  "custom_end_date_of_tax",
+  "section_break_ei0kk",
+  "custom_registration_number_in_exporter_register_attachment",
+  "custom_starte_datee",
+  "custom_end_datee",
+  "column_break_fealp",
+  "custom_export_volume_last_five_years",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "custom_start_date",
+   "fieldtype": "Date",
+   "label": " Start Date"
+  },
+  {
+   "fieldname": "custom_end_date",
+   "fieldtype": "Date",
+   "label": " End Date"
+  },
+  {
+   "fieldname": "column_break_cuxfj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "custom_start_date_of_tax",
+   "fieldtype": "Date",
+   "label": " Start Date"
+  },
+  {
+   "fieldname": "custom_end_date_of_tax",
+   "fieldtype": "Date",
+   "label": "End Date"
+  },
+  {
+   "fieldname": "section_break_ei0kk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "custom_starte_datee",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "custom_end_datee",
+   "fieldtype": "Date",
+   "label": " End Date"
+  },
+  {
+   "fieldname": "column_break_fealp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Production requirements card",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "custom_registration_number_in_commercial_register_attachment",
+   "fieldtype": "Attach",
+   "label": "Commercial register number"
+  },
+  {
+   "fieldname": "custom_tax_id",
+   "fieldtype": "Attach",
+   "label": "Tax ID Number"
+  },
+  {
+   "fieldname": "custom_registration_number_in_exporter_register_attachment",
+   "fieldtype": "Attach",
+   "label": "Exporter Register Number"
+  },
+  {
+   "fieldname": "custom_export_volume_last_five_years",
+   "fieldtype": "Attach",
+   "label": "Export Volume Last Five Years"
+  },
+  {
+   "fieldname": "section_break_vap5v",
+   "fieldtype": "Section Break",
+   "label": "Required Attachments Files"
+  },
+  {
+   "description": "Please , Select the member by code or name",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Members",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "column_break_auig1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "customer.custom_name_of_the_cioowner_of_the_company",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Member Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "customer.customer_group",
+   "fieldname": "custom_customer_group",
+   "fieldtype": "Data",
+   "label": " Customer Group",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "customer.custom_membership_status",
+   "fieldname": "custom_membership_status",
+   "fieldtype": "Data",
+   "label": " Membership Status",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "customer.custom_volume_of__exports",
+   "fieldname": "custom_volume_of_exports",
+   "fieldtype": "Data",
+   "label": "Volume of Exports",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Production requirements card",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-05-11 16:25:17.754957",
+ "modified_by": "Administrator",
+ "module": "Barcode Aec",
+ "name": "Production requirements card",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

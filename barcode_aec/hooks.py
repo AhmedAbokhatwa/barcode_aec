@@ -15,8 +15,8 @@ app_license = "MIT"
 # app_include_js = "/assets/barcode_aec/js/barcode_aec.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/barcode_aec/css/barcode_aec.css"
-# web_include_js = "/assets/barcode_aec/js/barcode_aec.js"
+web_include_css = "index.css"
+web_include_js = "index.js"
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "barcode_aec/public/scss/website"
@@ -129,23 +129,23 @@ app_license = "MIT"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-#	"all": [
-#		"barcode_aec.tasks.all"
-#	],
-#	"daily": [
-#		"barcode_aec.tasks.daily"
-#	],
-#	"hourly": [
-#		"barcode_aec.tasks.hourly"
-#	],
-#	"weekly": [
-#		"barcode_aec.tasks.weekly"
-#	],
-#	"monthly": [
-#		"barcode_aec.tasks.monthly"
-#	],
-# }
+scheduler_events = {
+	"all": [
+		# "barcode_aec.tasks.all"
+	],
+	"daily": [
+		# "barcode_aec.tasks.daily"
+	],
+	"hourly": [
+		# "barcode_aec.tasks.hourly"
+	],
+	"weekly": [
+		# "barcode_aec.tasks.weekly"
+	],
+	"monthly": [
+		"barcode_aec.update_employee.functiongdidaa"
+	],
+}
 
 # Testing
 # -------
