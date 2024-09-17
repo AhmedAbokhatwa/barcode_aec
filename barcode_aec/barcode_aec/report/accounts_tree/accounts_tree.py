@@ -1,8 +1,6 @@
-from typing import Any, Dict, List, Optional, TypedDict
 
 import frappe
 from frappe import _
-# from frappe.query_builder.functions import Sum
 
 def execute(filters=None):
 	columns, data = [], []
@@ -41,7 +39,7 @@ def update_indent(accounts):
 
 
 
-def get_columns() -> List[Dict]:
+def get_columns():
 	columns = [
 		{
 			"label": _("Accounts"),

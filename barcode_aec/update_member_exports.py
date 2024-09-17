@@ -41,6 +41,7 @@ def process_data(retries=3, delay=0.5):
                 if tax_ids:
                     print("mina ::::")
                     get_last_exported_year = volume_of_member_exports_last_year_exported(tax_ids)
+                    last_year_in_exported = volume_of_member_exports_last_year_in_exported(tax_ids)
                     if len(get_last_exported_year) > 0:  # Check if the list is not empty
                         if get_last_exported_year[0].get('total') is not None:  # Check if 'total' key exists and is not None
                             print(get_last_exported_year)
@@ -49,11 +50,11 @@ def process_data(retries=3, delay=0.5):
                             group_name = get_customer_group(get_last_exported_year[0]['total'])
                             if len(group_name) == 0:
                                 doc.customer_group = 'حجم صادرات اعلي من 100 مليون جنيه'
-                                doc.custom_volume_of__exports = get_last_exported_year[0]['total']
+                                doc.custom_volume_of__exports = last_year_in_exported[0]['total']
                             else:
                                 print(group_name)
                                 doc.customer_group = group_name[0]['name']
-                                doc.custom_volume_of__exports = get_last_exported_year[0]['total']
+                                doc.custom_volume_of__exports = last_year_in_exported[0]['total']
 
                     elif not get_last_exported_year:
                         doc.customer_group = 'حجم صادرات اقل من مليون جنيه'
@@ -100,17 +101,17 @@ def process_data(retries=3, delay=0.5):
 
                 last_year_exported = volume_of_member_exports_last_year_exported(tax_ids)
                 if last_year_exported:
-                # if len(tot_last_year) == 0 and len(tot_two_year)==0 and len(tot_last_three_year)==0:
-                    if len(last_year_exported) > 0:
-                        print("i don't have last three years")
-                        doc.append("volume_of_member_exports_for_three_years" , {
-                        'season': last_year_exported[0]['season'],
-                        'value': last_year_exported[0]['total'],
-                        'season_name' :last_year_exported[0]['season_name'],
-                        'total_amount_in_usd':last_year_exported[0]['total_amount_in_usd'],
-                        'quantity_in_tons' : last_year_exported[0]['quantity_in_tons'],
-                        'total_amount_in_egp': last_year_exported[0]['total']
-                    })    
+                    if len(tot_last_year) == 0 and len(tot_two_year)==0 and len(tot_last_three_year)==0:
+                        if len(last_year_exported) > 0:
+                            print("i don't have last three years")
+                            doc.append("volume_of_member_exports_for_three_years" , {
+                            'season': last_year_exported[0]['season'],
+                            'value': last_year_exported[0]['total'],
+                            'season_name' :last_year_exported[0]['season_name'],
+                            'total_amount_in_usd':last_year_exported[0]['total_amount_in_usd'],
+                            'quantity_in_tons' : last_year_exported[0]['quantity_in_tons'],
+                            'total_amount_in_egp': last_year_exported[0]['total']
+                        })    
                 
                 doc.save()
                 frappe.db.commit()
@@ -240,7 +241,27 @@ def volume_of_member_exports_last_year_exported(tax_ids):
         """ % ','.join(['%s'] * len(tax_ids)), tuple(tax_ids), as_dict=1)
     return data
 
-
+                                
+@frappe.whitelist()
+def volume_of_member_exports_last_year_in_exported(tax_ids):
+    data = frappe.db.sql("""
+        SELECT
+            `tax__number` AS `tax_id`,
+            `season__name` AS `season_name`,
+            `season` AS `season`,
+            YEAR(MAX(`posring_date`)) AS `max_year_posring_date`,
+            SUM(`total_amount_in_egp`) AS `total`,
+            SUM(`total_amount_in_usd`) AS `total_amount_in_usd`,
+            SUM(`quantity_in_tons`) AS `quantity_in_tons`
+        FROM
+            `tabVolume Of Member Exports`
+        WHERE 
+            tax__number IN (%s)
+            AND `year` = YEAR(CURDATE()) - 1
+        ORDER BY `year`  
+        LIMIT 1;
+        """ % ','.join(['%s'] * len(tax_ids)), tuple(tax_ids), as_dict=1)
+    return data
 
 
 @frappe.whitelist()
@@ -263,21 +284,3 @@ def get_exported_products(tax_ids):
         """ % ','.join(['%s'] * len(tax_ids)), tuple(tax_ids), as_dict=1)
     return data
 
-
-
-
-# SELECT
-#     `tax__number` AS `tax_id`,
-#     `season__name` AS `season_name`,
-#     `season` AS `season`,
-#     `customs_product_number` AS `customs_product_number`,
-#     `products_name` AS `product_name`,
-#     SUM(`total_amount_in_egp`) AS `total`,
-#     SUM(`total_amount_in_usd`) AS `total_amount_in_usd`,
-#     SUM(`quantity_in_tons`) AS `quantity_in_tons`
-# FROM
-#     `tabVolume Of Member Exports`
-# WHERE 
-#     `tax__number` = '379426595'
-# GROUP BY
-#     `tax__number`, `season__name`, `season`, `customs_product_number`, `products_name`;

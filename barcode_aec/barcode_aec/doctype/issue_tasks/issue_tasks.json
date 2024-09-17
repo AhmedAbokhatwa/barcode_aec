@@ -17,7 +17,8 @@
   "custom_due_date",
   "section_break_dpfzf",
   "notes",
-  "remark"
+  "remark",
+  "attachments"
  ],
  "fields": [
   {
@@ -77,11 +78,17 @@
    "fieldname": "remark",
    "fieldtype": "Text",
    "label": "Remark"
+  },
+  {
+   "fieldname": "attachments",
+   "fieldtype": "Table",
+   "label": "attachments",
+   "options": "Issue Attachments"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-02 09:54:18.021327",
+ "modified": "2024-09-08 12:46:51.031695",
  "modified_by": "Administrator",
  "module": "Barcode Aec",
  "name": "Issue Tasks",

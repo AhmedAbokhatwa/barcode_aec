@@ -3,15 +3,15 @@ from frappe import _
 from frappe.utils.pdf import get_pdf
 
 @frappe.whitelist(allow_guest=True)
-def send_email(name):
+def send_email(name, print_format):
     try:
         issue = frappe.get_doc("Issue", name)
         custom_the_contact = issue.custom_the_contact
-        custom_direct_print = issue.custom_direct_print
+        custom_direct_print = issue.custom_digital_signature
         attachments = get_attachments(issue)
         
         # Default print format if not specified in the issue
-        print_format = getattr(issue, 'print_format', 'issue letter') ##---> 1 ##
+        print_format = getattr(issue, 'print_format', print_format) ##---> 1 ##
         print_format_attachment = attach_print("Issue", name, print_format)##---> 2 ##
         custom_digital_signature = issue.custom_digital_signature
         if (custom_digital_signature == 1):
@@ -46,9 +46,9 @@ def send_email(name):
         frappe.log_error(frappe.get_traceback(), _("Error in send_email"))
         frappe.throw(_("An error occurred while sending emails: {0}").format(str(e)))
 
-def get_attachments(doc):
+def get_attachments(issue):
     attachments = []
-    for attachment in doc.get("custom_attachments", []):
+    for attachment in issue.get("custom_attachments", []):
         file_url = attachment.get("attachment")
         if file_url:
             attachments.append({"file_url": file_url})
@@ -64,7 +64,7 @@ def attach_print(doctype, name, print_format=None, style=None, as_pdf=True, no_l
     :param style: The style to apply to the print format
     :param as_pdf: Boolean indicating whether to return the content as PDF
     :param no_letterhead: Boolean indicating whether to exclude the letterhead
-    :return: Dictionary containing 'fname' and 'fcontent'
+    :return: Dictionary containing 'fname' and 'fcontent'   
     """
     try:
         if as_pdf:
