@@ -31,7 +31,6 @@ def update_indent(accounts):
 			for child in accounts:
 				if child.parent_account == account.name:
 					add_indent(child, indent + 1)
-					print("d",child)
 
 		if account.is_group:
 			add_indent(account, account.indent or 0)

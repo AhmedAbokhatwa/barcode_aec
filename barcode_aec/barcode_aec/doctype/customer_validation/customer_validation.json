@@ -1,0 +1,36 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-24 18:16:29.448980",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "field",
+  "reason"
+ ],
+ "fields": [
+  {
+   "fieldname": "field",
+   "fieldtype": "Data",
+   "label": "field"
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Data",
+   "label": "reason"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-24 18:16:29.448980",
+ "modified_by": "Administrator",
+ "module": "Barcode Aec",
+ "name": "Customer Validation",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

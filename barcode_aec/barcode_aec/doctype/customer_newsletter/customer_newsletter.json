@@ -1,0 +1,115 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series: [naming_series]",
+ "creation": "2024-09-17 15:00:36.660064",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "date",
+  "source",
+  "generealiztion_id",
+  "time",
+  "sender_type",
+  "sender_email",
+  "customer_email",
+  "subject",
+  "body",
+  "attachs"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "GN-Email-"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Link",
+   "label": "source",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "generealiztion_id",
+   "fieldtype": "Dynamic Link",
+   "label": " Generealiztion ID",
+   "options": "source"
+  },
+  {
+   "fieldname": "time",
+   "fieldtype": "Time",
+   "label": "time"
+  },
+  {
+   "fieldname": "sender_type",
+   "fieldtype": "Link",
+   "label": "Sender Type",
+   "options": "Member Type"
+  },
+  {
+   "fetch_from": "sender_type.email",
+   "fieldname": "sender_email",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Sender Email"
+  },
+  {
+   "fieldname": "customer_email",
+   "fieldtype": "Table",
+   "label": "Customer Email",
+   "options": "Customer Email"
+  },
+  {
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "label": "Subject"
+  },
+  {
+   "fieldname": "body",
+   "fieldtype": "Text Editor",
+   "label": "Body"
+  },
+  {
+   "fieldname": "attachs",
+   "fieldtype": "Table",
+   "label": "attachs",
+   "options": "Newsletter Attachment"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-09-17 15:00:48.115708",
+ "modified_by": "Administrator",
+ "module": "Barcode Aec",
+ "name": "Customer Newsletter",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

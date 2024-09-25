@@ -3,7 +3,7 @@ from frappe import _
 from io import BytesIO
 import base64
 import barcode
-from barcode.writer import ImageWriter
+#from barcode.writer import ImageWriter
 from datetime import datetime, timedelta
 from redis import Redis
 from redis.lock import Lock

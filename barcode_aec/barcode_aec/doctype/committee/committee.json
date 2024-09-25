@@ -4,7 +4,7 @@
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:name_of_committee",
- "creation": "2024-07-16 12:06:17.213185",
+ "creation": "2024-09-23 16:09:30.254131",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -476,11 +476,11 @@
   },
   {
    "link_doctype": "Committee Generalization",
-   "link_fieldname": "circular_no"
+   "link_fieldname": "committees"
   }
  ],
  "make_attachments_public": 1,
- "modified": "2024-07-16 12:06:17.213185",
+ "modified": "2024-09-23 16:09:30.254131",
  "modified_by": "Administrator",
  "module": "Barcode Aec",
  "name": "Committee",
