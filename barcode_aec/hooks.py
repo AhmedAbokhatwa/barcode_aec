@@ -132,13 +132,14 @@ web_include_js = "index.js"
 scheduler_events = {
     "cron":{
       "0 0 * * *":"barcode_aec.make_journal_entry.cron",
-      "* * * * *":"barcode_aec.sendmail2.send_email"
+      " * * * *":"barcode_aec.sendmail2.send_email"
 	},
 	"all": [
 		# "barcode_aec.tasks.all"
 	],
 	"daily": [
 		# "barcode_aec.tasks.daily"
+		"barcode_aec.validate_reason_of_suspense.validate_customer"
 	],
 	"hourly": [
 		# "barcode_aec.tasks.hourly"
