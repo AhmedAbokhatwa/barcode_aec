@@ -1,0 +1,63 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-27 20:30:02.246927",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "qty",
+  "ware_house",
+  "customer",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "qty",
+   "fieldtype": "Data",
+   "label": "qty"
+  },
+  {
+   "fieldname": "ware_house",
+   "fieldtype": "Data",
+   "label": "ware house"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "options": "test bulk"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-09-27 20:53:39.454523",
+ "modified_by": "Administrator",
+ "module": "Barcode Aec",
+ "name": "test bulk",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
